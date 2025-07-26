@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Delitos en España</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard de Delitos en España</h1>
+
+        <div class="filters-container">
+            <div class="filter">
+                <label for="comunidad-filter">Comunidad Autónoma:</label>
+                <select id="comunidad-filter"></select>
+            </div>
+            <div class="filter">
+                <label for="tipologia-filter">Tipología de Delito:</label>
+                <select id="tipologia-filter"></select>
+            </div>
+            <div class="filter">
+                <label for="anio-filter">Año:</label>
+                <select id="anio-filter"></select>
+            </div>
+            <button id="reset-filters">Limpiar Filtros</button>
+        </div>
+
+        <div class="grid-container">
+            <div class="chart-container">
+                <h2>Evolución de Delitos</h2>
+                <canvas id="evolucionDelitos"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Total de delitos por comunidad autónoma</h2>
+                <canvas id="totalDelitosPorComunidad"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Distribución de tipos de delito</h2>
+                <canvas id="distribucionDelitos"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Top 5 Delitos (Evolución Nacional)</h2>
+                <canvas id="evolucionPrincipalesDelitos"></canvas>
+            </div>
+        </div>
+
+        <div class="data-source-container">
+            <h2>Fuente de los Datos</h2>
+            <p>
+                Los datos mostrados en este dashboard han sido obtenidos del <strong>Portal Estadístico de Criminalidad</strong> del Ministerio del Interior de España.
+            </p>
+            <p>
+                <strong>Series anuales:</strong> Hechos esclarecidos por comunidades autónomas, tipología penal y periodo.
+            </p>
+            <p>
+                <a href="https://estadisticasdecriminalidad.ses.mir.es/publico/portalestadistico/datos?type=jaxi&title=Hechos%20esclarecidos&path=/Datos2/" target="_blank">Enlace a la fuente original</a>
+            </p>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
