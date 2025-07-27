@@ -19,17 +19,17 @@ El dashboard incluye los siguientes gráficos:
 - **Distribución de tipos de delito:** Un gráfico de tarta que muestra la proporción de cada tipo de delito para un año y comunidad autónoma seleccionados.
 - **Top 5 Delitos (Evolución Nacional):** Un gráfico de líneas que muestra la evolución de los cinco delitos más comunes a nivel nacional.
 
-## Cómo ejecutar el proyecto
+## Cómo ver el proyecto
 
-Para ver el dashboard, necesitas ejecutar un servidor web local. Sigue estos pasos:
+Este es un proyecto web estático (HTML, CSS, JavaScript). Puedes visualizarlo de las siguientes maneras:
 
-1. Clona o descarga este repositorio en tu máquina local.
-2. Abre una terminal o línea de comandos en la carpeta del proyecto.
-3. Ejecuta el siguiente comando para iniciar un servidor web simple con Python:
-   ```bash
-   python -m http.server 8000
-   ```
-4. Abre tu navegador web y ve a la siguiente dirección: `http://localhost:8000`
+### 1. Abriendo el archivo localmente
+
+Simplemente abre el archivo `index.html` en tu navegador web preferido.
+
+### 2. Despliegue en un servicio de hosting estático
+
+Puedes desplegar este proyecto en cualquier servicio de hosting estático como Netlify, Vercel, GitHub Pages, etc. Una vez desplegado, el sitio estará accesible a través de una URL pública.
 
 ## Fuente de los Datos
 

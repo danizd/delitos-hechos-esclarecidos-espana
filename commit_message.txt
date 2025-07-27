@@ -1,1 +1,1 @@
-Fix: Restaurar lógica de gráficos y filtros en script.js
+Fix: Corregir codificación CSV y poblar filtros correctamente
