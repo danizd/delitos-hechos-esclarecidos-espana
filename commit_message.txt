@@ -1,1 +1,1 @@
-Add README.md with project information
+Fix: Cargar y parsear CSV con Papa Parse
