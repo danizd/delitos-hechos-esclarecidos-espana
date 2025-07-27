@@ -1,1 +1,1 @@
-Fix: Corregir codificación CSV y poblar filtros correctamente
+Docs: Actualizar README.md para reflejar el despliegue estático

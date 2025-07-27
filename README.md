@@ -31,6 +31,8 @@ Simplemente abre el archivo `index.html` en tu navegador web preferido.
 
 Puedes desplegar este proyecto en cualquier servicio de hosting estático como Netlify, Vercel, GitHub Pages, etc. Una vez desplegado, el sitio estará accesible a través de una URL pública.
 
+**Enlace al proyecto desplegado:** [https://criminalidad-espana.netlify.app/](https://criminalidad-espana.netlify.app/)
+
 ## Fuente de los Datos
 
 - **Institución:** Ministerio del Interior de España
