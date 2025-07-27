@@ -1,1 +1,1 @@
-Fix: Cargar y parsear CSV con Papa Parse
+Update: Ajustes finales para despliegue en Netlify
