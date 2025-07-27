@@ -1,1 +1,1 @@
-Docs: Actualizar README.md para reflejar el despliegue estático
+Docs: Añadir enlace de despliegue a README.md

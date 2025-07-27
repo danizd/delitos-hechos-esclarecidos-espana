@@ -33,9 +33,15 @@ Puedes desplegar este proyecto en cualquier servicio de hosting estático como N
 
 **Enlace al proyecto desplegado:** [https://criminalidad-espana.netlify.app/](https://criminalidad-espana.netlify.app/)
 
+
 ## Fuente de los Datos
 
 - **Institución:** Ministerio del Interior de España
 - **Portal:** Portal Estadístico de Criminalidad
 - **Dataset:** Series anuales. Hechos esclarecidos por comunidades autónomas, tipología penal y periodo.
 - **Enlace:** [https://estadisticasdecriminalidad.ses.mir.es/publico/portalestadistico/](https://estadisticasdecriminalidad.ses.mir.es/publico/portalestadistico/)
+
+## Proyectos Relacionados
+
+- **Dashboard de Condenas en España:** Creado por bolt.new, este dashboard visualiza datos de delitos y delitos sexuales de condenas recogidos en el Instituto Nacional de Estadística.
+  - **Enlace:** [https://criminalidad-espana.netlify.app/](https://criminalidad-espana.netlify.app/)
