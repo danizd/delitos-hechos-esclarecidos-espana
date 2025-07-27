@@ -1,1 +1,1 @@
-Update: Ajustes finales para despliegue en Netlify
+Fix: Restaurar lógica de gráficos y filtros en script.js

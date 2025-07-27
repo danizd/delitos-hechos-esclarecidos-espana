@@ -2,41 +2,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let allData = [];
     let charts = {};
 
-    // Use TextDecoder to handle special characters like 'Ñ' by specifying the encoding.
-    Papa.parse('delitos.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            // Papa Parse ya maneja la codificación y el parseo de líneas/columnas
-            allData = results.data.map(row => ({
-                comunidad: row.comunidad.trim(),
-                tipologia: row.tipologia.trim(),
-                periodo: parseInt(row.periodo),
-                total: parseInt(row.total.replace(/\./g, '')) || 0
-            })).filter(d => d.periodo && d.total);
+    fetch('delitos.csv')
+        .then(response => response.arrayBuffer())
+        .then(buffer => {
+            const decoder = new TextDecoder('ISO-8859-1'); // Decodificar manualmente con ISO-8859-1
+            const decodedData = decoder.decode(buffer);
 
-            populateFilters(allData);
-            initializeCharts(allData);
+            Papa.parse(decodedData, {
+                header: true,
+                delimiter: ';',
+                complete: function(results) {
+                    console.log('Campos detectados por Papa Parse:', results.meta.fields);
+                    allData = results.data.map(row => ({
+                        comunidad: row['Comunidades autónomas'] ? row['Comunidades autónomas'].trim() : '',
+                        tipologia: row['Tipología penal'] ? row['Tipología penal'].trim() : '',
+                        periodo: parseInt(row.periodo) || 0,
+                        total: parseInt(row.Total ? row.Total.replace(/\./g, '') : '0') || 0
+                    })).filter(d => d.periodo && d.total);
 
-            document.getElementById('comunidad-filter').addEventListener('change', () => updateCharts(allData));
-            document.getElementById('tipologia-filter').addEventListener('change', () => updateCharts(allData));
-            document.getElementById('anio-filter').addEventListener('change', () => updateCharts(allData));
-            document.getElementById('reset-filters').addEventListener('click', () => {
-                document.getElementById('comunidad-filter').value = 'TOTAL NACIONAL';
-                document.getElementById('tipologia-filter').value = 'Todos';
-                document.getElementById('anio-filter').value = 'Todos';
-                updateCharts(allData);
+                    populateFilters(allData);
+                    initializeCharts(allData);
+
+                    document.getElementById('comunidad-filter').addEventListener('change', () => updateCharts(allData));
+                    document.getElementById('tipologia-filter').addEventListener('change', () => updateCharts(allData));
+                    document.getElementById('anio-filter').addEventListener('change', () => updateCharts(allData));
+                    document.getElementById('reset-filters').addEventListener('click', () => {
+                        document.getElementById('comunidad-filter').value = 'TOTAL NACIONAL';
+                        document.getElementById('tipologia-filter').value = 'Todos';
+                        document.getElementById('anio-filter').value = 'Todos';
+                        updateCharts(allData);
+                    });
+                }
             });
-        }
-    });
+        });
 
     function populateFilters(data) {
         const comunidadFilter = document.getElementById('comunidad-filter');
         const tipologiaFilter = document.getElementById('tipologia-filter');
         const anioFilter = document.getElementById('anio-filter');
 
-        const comunidades = ['TOTAL NACIONAL', ...new Set(data.map(d => d.comunidad).filter(c => c !== 'TOTAL NACIONAL').sort())];
-        const tipologias = ['Todos', ...new Set(data.map(d => d.tipologia).sort())];
+        const comunidades = ['TOTAL NACIONAL', ...new Set(data.map(d => d.comunidad).filter(c => c && c !== 'TOTAL NACIONAL').sort())];
+        const tipologias = ['Todos', ...new Set(data.map(d => d.tipologia).filter(t => t).sort())];
         const anios = ['Todos', ...new Set(data.map(d => d.periodo).sort((a, b) => b - a))];
 
         comunidadFilter.innerHTML = ''; // Limpiar opciones existentes
